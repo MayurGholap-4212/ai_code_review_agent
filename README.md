@@ -254,15 +254,9 @@ pip install -r requirements.txt
 ## 🧑‍💻 Contributors
 
 - **Mayur Subhash Gholap** – Developer  
-(Add others as needed)
 
 ---
 
-## 🛡 License
-
-This project is licensed under the **MIT License**.
-
----
 
 ## 📬 Contact
 
