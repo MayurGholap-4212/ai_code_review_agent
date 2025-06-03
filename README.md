@@ -92,3 +92,168 @@ Run from terminal:
 
 ```bash
 python main.py --path path/to/codebase --output path/to/output --priority readability --aggressiveness 5 --exclude tests docs
+
+---
+
+Arguments
+Argument	Description	Default
+--path	Path to codebase folder	input/
+--output	Destination for improved code	output/
+--priority	Focus: readability, performance, security	readability
+--aggressiveness	Level of improvement (1–10)	5
+--exclude	Folders/files to skip	None
+
+REST API Interface
+A simple REST API is implemented.
+
+Endpoint:
+
+http
+Copy
+Edit
+POST /api/review
+Payload:
+
+files: ZIP file of codebase or multiple code files
+
+priority: readability | performance | security
+
+aggressiveness: 1–10
+
+exclude: comma-separated paths
+
+Response:
+
+json
+Copy
+Edit
+{
+  "message": "Codebase improved successfully.",
+  "report_url": "/downloads/report.md",
+  "improved_code_url": "/downloads/improved_code.zip"
+}
+🗂️ Project Structure
+graphql
+Copy
+Edit
+ai-code-review-agent/
+│
+├── analyzer/
+│   ├── analyzer.py           # AST parsing, complexity, metrics
+│   ├── improve.py            # Code improvement logic
+│   ├── report_generator.py   # Markdown report generation
+│   └── __init__.py
+│
+├── api/
+│   ├── main_api.py           # REST API using FastAPI/Flask
+│   └── ...
+│
+├── input/                    # Default input folder
+├── output/                   # Improved code and reports
+├── main.py                   # CLI entry point
+├── requirements.txt
+└── README.md
+📈 How It Works
+Input: Receives codebase from CLI or API
+
+Parsing: Scans and parses all Python files using AST
+
+Analysis:
+
+Metrics: LOC, comments %, cyclomatic complexity
+
+Checks for missing docstrings, long functions, nested blocks
+
+Improvement:
+
+Adds docstrings where missing
+
+Reformats code using standard styling
+
+Annotates unclear logic with comments
+
+Output:
+
+Saves to new folder
+
+Generates Markdown report (one per file)
+
+API: Enables remote code submission and response
+
+🧪 Example CLI Usage
+bash
+Copy
+Edit
+python main.py --path ./myproject --output ./reviewed --priority readability --aggressiveness 7 --exclude tests
+🔮 Future Roadmap
+✅ ZIP file upload and Git repo cloning
+
+✅ Multi-language support (JavaScript, Java, Go, C++)
+
+✅ Advanced vulnerability scanning
+
+✅ Resource usage optimization (memory/CPU)
+
+✅ Side-by-side HTML/PDF before-after diff reports
+
+✅ CI/CD integration hooks
+
+✅ Web UI (dashboard + config)
+
+✅ Real-time progress tracking
+
+🧪 Acceptance Criteria
+✅ Codebase is analyzed and known issues are detected
+
+✅ Output code maintains original functionality
+
+✅ Detailed reports summarize changes and improvements
+
+✅ CLI/API work as expected
+
+✅ Significant metrics improvement is measurable
+
+📚 Reports
+Each report contains:
+
+File summary
+
+Lines of code (before/after)
+
+Function/class count
+
+Complexity metrics
+
+Missing/added documentation
+
+Changes performed
+
+Suggestions (if not implemented automatically)
+
+🧰 Requirements
+Python 3.8+
+
+Install dependencies:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+🧑‍💻 Contributors
+Mayur Subhash Gholap – Developer
+(Add others as needed)
+
+🛡 License
+This project is licensed under the MIT License.
+
+📬 Contact
+Mayur Subhash Gholap
+📧 Email: mayur.gholap@example.com
+🌐 GitHub: github.com/mayurgholap
+
+vbnet
+Copy
+Edit
+
+
+---
