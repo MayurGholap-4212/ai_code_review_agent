@@ -1,0 +1,47 @@
+""")
+
+            if 'metrics' in item and item['metrics']:
+                html_file.write("""
+        <h4>Code Metrics</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+""")
+                for key, value in item['metrics'].items():
+                    html_file.write(f"""
+                <tr>
+                    <td>{key}</td>
+                    <td>{value}</td>
+                </tr>
+""")
+                html_file.write("""
+            </tbody>
+        </table>
+""")
+
+            if 'improvements' in item and item['improvements']:
+                html_file.write("""
+        <h4>Suggested Improvements</h4>
+        <ul>
+""")
+                for imp in item['improvements']:
+                    html_file.write(f"""
+            <li>{imp}</li>
+""")
+                html_file.write("""
+        </ul>
+""")
+            else:
+                html_file.write("""
+        <p>No improvements suggested.</p>
+""")
+            
+            html_file.write("""
+    </div>
+    <hr />
+""")

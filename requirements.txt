@@ -1,0 +1,12 @@
+pylint
+bandit
+radon
+black
+flake8
+deepdiff
+gitpython
+fastapi
+uvicorn
+fastapi==0.95.2
+uvicorn==0.22.0
+python-multipart==0.0.6
